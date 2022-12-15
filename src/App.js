@@ -8,6 +8,7 @@ import Snackbars from "./Snackbar/Snackbars";
 import Login from "./Inicio/Login";
 import Dashboard from "./Inicio/Dashboard";
 import ChooseUserName from "./Inicio/ChooseUserName";
+import DashboardProfileView from "./Inicio/DashboardProfileView";
 
 function App() {
   return (
@@ -36,6 +37,10 @@ function App() {
               <Routes>
                 <Route path="/" element={<Login />} />
                 <Route path="/dashboard" element={<Dashboard />} />
+                <Route
+                  path="/dashboard/profile"
+                  element={<DashboardProfileView />}
+                />
                 <Route path="/chooseusername" element={<ChooseUserName />} />
                 <Route path="*" element={<p>Path not resolved</p>} />
               </Routes>

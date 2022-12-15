@@ -20,6 +20,7 @@ function Login() {
   3: Login pero sin registro
   4: No hay nadie Logeado
   5: Ya existe el Username
+  6: Nuevo user, click para continuar
   */
   const [currentState, setCurrentState] = useState(0);
 

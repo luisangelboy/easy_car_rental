@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AuthProvider from "../components/AuthProvider";
 import { existUsername, updateUser } from "../Firebase/Firebase";
 
@@ -36,6 +36,7 @@ function ChooseUserName() {
         tmp.username = username;
         tmp.processCompleted = true;
         await updateUser(tmp);
+        setCurrentState(6);
       }
     }
   }
@@ -58,6 +59,15 @@ function ChooseUserName() {
           <button onClick={handleContinue}>Continuue</button>
         </div>
       </>
+    );
+  }
+
+  if (currentState === 6) {
+    return (
+      <div>
+        <h1>¡Felicidades! Ya puedes ir al dashboard</h1>{" "}
+        <Link to="/dashboard">Continuar</Link>
+      </div>
     );
   }
 
