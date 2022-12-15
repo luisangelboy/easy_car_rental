@@ -1,24 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Provider } from "./Provider";
+import { CssBaseline } from "@mui/material";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "@mui/styles";
+import theme from "./temaConfig";
+import Snackbars from "./Snackbar/Snackbars";
+import Login from "./Inicio/Login";
+import Dashboard from "./Inicio/Dashboard";
+import ChooseUserName from "./Inicio/ChooseUserName";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Provider>
+        <ThemeProvider theme={theme}>
+          <div>
+            <div
+              style={{
+                // backgroundImage: `url(${background})`,
+                // "linear-gradient(green, white)"
+                fontFamily: "Alumni Sans Pinstripe",
+                backgroundAttachment: "fixed",
+                backgroundRepeat: "no-repeat",
+                position: "fixed",
+                height: "100vh",
+                width: "100vw",
+                zIndex: -1,
+                backgroundSize: "cover",
+                objectFit: "scale-down",
+              }}
+            ></div>
+            <CssBaseline />
+            <Snackbars />
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<Login />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/chooseusername" element={<ChooseUserName />} />
+                <Route path="*" element={<p>Path not resolved</p>} />
+              </Routes>
+            </BrowserRouter>
+          </div>
+        </ThemeProvider>
+      </Provider>
+    </>
   );
 }
 
