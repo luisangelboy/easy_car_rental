@@ -9,6 +9,7 @@ import Login from "./Inicio/Login";
 import Dashboard from "./Inicio/Dashboard";
 import ChooseUserName from "./Inicio/ChooseUserName";
 import DashboardProfileView from "./Inicio/DashboardProfileView";
+import SignOut from "./Inicio/SignOut";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
                   path="/dashboard/profile"
                   element={<DashboardProfileView />}
                 />
+                <Route path="/signout" element={<SignOut />} />
                 <Route path="/chooseusername" element={<ChooseUserName />} />
                 <Route path="*" element={<p>Path not resolved</p>} />
               </Routes>
